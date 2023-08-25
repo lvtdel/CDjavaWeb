@@ -52,6 +52,7 @@ public class jobSeekersController {
     @DeleteMapping
     public ResponseEntity deleteJob(@PathVariable Long id) {
         jobRepository.deleteById(id);
+//        v
         return ResponseEntity.ok().build();
     }
 
