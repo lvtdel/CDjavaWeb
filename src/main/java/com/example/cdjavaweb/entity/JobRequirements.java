@@ -2,24 +2,23 @@ package com.example.cdjavaweb.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "social_media")
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
-public class SocialMedia {
+@AllArgsConstructor
+public class JobRequirements {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String link;
+    @Column(columnDefinition = "TEXT")
+    private String content;
 
     @Column(name = "user_id")
-    private long userId;
-
-    @Column(name = "social_media_type_id")
-    private long socialMediaTypeId;
-
-    // Constructors, getters and setters
+    private long userID;
 }

@@ -21,7 +21,7 @@ public class jobSeekersController {
     }
 
     @GetMapping("/{id}")
-    public Job getJobById(@PathVariable Long id) {
+    public Job getJobById(@PathVariable long id) {
         return jobRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Job not found with id " + id)
         );
@@ -33,7 +33,7 @@ public class jobSeekersController {
     }
 
     @PutMapping("/{id}")
-    public Job updateJob(@PathVariable Long id, @RequestBody Job jobDetails) {
+    public Job updateJob(@PathVariable long id, @RequestBody Job jobDetails) {
         Job job = jobRepository.findById(id).orElseThrow(() ->
                 new ResourceNotFoundException("Job not found with id" + id)
                 );
@@ -49,15 +49,14 @@ public class jobSeekersController {
         return jobRepository.save(job);
     }
 
-    @DeleteMapping
-    public ResponseEntity deleteJob(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteJob(@PathVariable long id) {
         jobRepository.deleteById(id);
-//        v
         return ResponseEntity.ok().build();
     }
 
 //    @DeleteMapping("/{id}")
-//    public ResponseEntity<?> deleteJob(@PathVariable Long id) {
+//    public ResponseEntity<?> deleteJob(@PathVariable long id) {
 //        Job job = jobRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Job not found with id " + id));
 //        jobRepository.delete(job);
 //        return ResponseEntity.ok().build();

@@ -11,7 +11,6 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "jobs")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -29,7 +28,7 @@ public class Job {
     @Column(columnDefinition = "TEXT")
     private String description;
     @Column(name = "address_id")
-    private int addressID;
+    private long addressID;
     @Column(name = "min_salary")
     private double minSalary;
     @Column(name = "max_salary")
@@ -40,6 +39,6 @@ public class Job {
     private String email;
     private String phoneNumber;
     @Column(name = "user_id")
-    private int userID;
+    private long userID;
 
 }

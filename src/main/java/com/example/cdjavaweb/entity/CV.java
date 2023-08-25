@@ -15,12 +15,12 @@ import lombok.Setter;
 public class CV {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String path;
 
     @Column(name = "user_id")
-    private Long userId;
+    private long userId;
 
 }
 
