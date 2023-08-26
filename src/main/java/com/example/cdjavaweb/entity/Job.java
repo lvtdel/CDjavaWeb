@@ -1,10 +1,7 @@
 package com.example.cdjavaweb.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
@@ -15,6 +12,7 @@ import java.sql.Timestamp;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

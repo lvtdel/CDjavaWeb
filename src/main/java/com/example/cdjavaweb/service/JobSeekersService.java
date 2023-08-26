@@ -23,4 +23,8 @@ public class JobSeekersService {
         );
     }
 
+    public List<Job> findAllJobsByCompanyName(String companyName) {
+        return jobRepository.findJobsByCompanyNameContaining(companyName);
+    }
+
 }
