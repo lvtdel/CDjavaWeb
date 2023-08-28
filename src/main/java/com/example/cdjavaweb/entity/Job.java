@@ -1,13 +1,20 @@
 package com.example.cdjavaweb.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+// Để Json xác định đối tượng, tránh lặp vô tận khi truy cập các đối tượng lồng nhau
+// VD job->jobRqm->job...
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -39,4 +46,10 @@ public class Job {
     @Column(name = "user_id")
     private long userID;
 
+    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
+    private Set<JobRequirements> jobRequirements = new HashSet<JobRequirements>();
+
+    public Set<JobRequirements> getJobRequirements() {
+        return jobRequirements;
+    }
 }

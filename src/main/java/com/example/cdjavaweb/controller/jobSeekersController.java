@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/")
 public class jobSeekersController {
 
     @Autowired
     JobSeekersService jobSeekersService;
 
-    @GetMapping("home")
+    @GetMapping
     public List<Job> getAllJob() {
         return jobSeekersService.getAllJob();
     }
 
-//    @GetMapping("/{id}")
-//    public Job getJobById(@PathVariable Long id) {
-//        return jobSeekersService.getJobById(id);
-//    }
+    @GetMapping("/{id}")
+    public Job getJobById(@PathVariable Long id) {
+        return jobSeekersService.getJobById(id);
+    }
 }
