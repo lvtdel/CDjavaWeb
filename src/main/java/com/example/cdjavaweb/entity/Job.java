@@ -46,10 +46,10 @@ public class Job {
     @Column(name = "user_id")
     private long userID;
 
-    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "job", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<JobRequirements> jobRequirements = new HashSet<JobRequirements>();
 
-    public Set<JobRequirements> getJobRequirements() {
-        return jobRequirements;
-    }
+//    public Set<JobRequirements> getJobRequirements() {
+//        return jobRequirements;
+//    }
 }

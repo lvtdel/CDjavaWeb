@@ -1,18 +1,15 @@
 package com.example.cdjavaweb.controller;
 
 import com.example.cdjavaweb.entity.Job;
-import com.example.cdjavaweb.exception.ResourceNotFoundException;
-import com.example.cdjavaweb.repository.JobRepository;
 import com.example.cdjavaweb.service.JobSeekersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/")
-public class jobSeekersController {
+public class JobSeekersController {
 
     @Autowired
     JobSeekersService jobSeekersService;
